@@ -14,8 +14,12 @@
 #include <iostream>
 #include <ostream>
 #include <vector>
+#include <random>
+#include <algorithm>
 
 using std::ostream;
+using std::vector;
+using std::cout; using std::endl;
 
 const int SUCCESS = 0;
 

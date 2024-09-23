@@ -29,23 +29,6 @@ PinochleDeck::PinochleDeck() {
     }
 }
 
-// prints all of the cards in the deck
-void PinochleDeck::print(std::ostream &ost) {
-    ost << "Printing Pinochle Deck:" << '\n';
-    Suit currSuit = firstSuit;
-    for(Card card : cards) {
-        if(card.suit != currSuit) {
-            currSuit = card.suit;
-            ost << '\n';
-            if(currSuit == firstSuit) { // we have made it to the second deck
-                ost << '\n'; // another line break between the two decks
-            }
-        }
-        ost << card << " ";
-    }
-    ost << "\n\n";
-}
-
 // overloads the << operator for the PinochleRank enum
 ostream& operator<<(ostream& ost, const PinochleRank& pRank) {
     switch (pRank) {

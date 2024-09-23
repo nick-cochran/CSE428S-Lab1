@@ -20,12 +20,9 @@ enum class PinochleRank {
     nine, jack, queen, king, ten, ace, undefined
 };
 
-class PinochleDeck : public Deck {
-
-    vector< Card<Suit, PinochleRank> > cards;
+class PinochleDeck : public Deck<Suit, PinochleRank> {
  public:
     PinochleDeck();
-    void print(ostream& ost) override;
 };
 
 ostream& operator<<(ostream& ost, const PinochleRank& pRank);

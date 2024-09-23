@@ -12,15 +12,15 @@
 #include "includes.h"
 #include "Suit.h"
 
-template<typename S, typename R> struct Card {
-    S suit;
-    R rank;
+template<typename Suit, typename Rank> struct Card {
+    Suit suit;
+    Rank rank;
 
-    Card(S suit, R rank);
+    Card(Suit suit, Rank rank);
 };
 
-template<typename S, typename R>
-ostream& operator<<(ostream& ost, const Card<S, R>& card);
+template<typename Suit, typename Rank>
+ostream& operator<<(ostream& ost, const Card<Suit, Rank>& card);
 
 
 #ifdef TEMPLATE_HEADERS_INCLUDE_SOURCE

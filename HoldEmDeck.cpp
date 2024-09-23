@@ -22,20 +22,6 @@ HoldEmDeck::HoldEmDeck() {
     }
 }
 
-// prints out all of the cards with a line break after the end of each suit
-void HoldEmDeck::print(std::ostream &ost) {
-    ost << "Printing Texas Hold 'Em Deck:" << '\n';
-    Suit currSuit = firstSuit;
-    for(Card card : cards) {
-        if(card.suit != currSuit) {
-            currSuit = card.suit;
-            ost << '\n';
-        }
-        ost << card << " ";
-    }
-    ost << "\n\n";
-}
-
 
 // overloads the << operator for the HoldEmRank enum
 ostream& operator<<(ostream& ost, const HoldEmRank& heRank) {

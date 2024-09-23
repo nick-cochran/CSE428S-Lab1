@@ -24,12 +24,9 @@ ostream& operator<<(ostream& ost, const HoldEmRank& heRank);
 HoldEmRank& operator++(HoldEmRank& heRank);
 
 
-class HoldEmDeck : public Deck {
-
-    vector< Card<Suit, HoldEmRank> > cards;
+class HoldEmDeck : public Deck<Suit, HoldEmRank> {
  public:
     HoldEmDeck();
-    void print(ostream& ost) override;
 };
 
 #endif //LAB0_HOLDEMDECK_H

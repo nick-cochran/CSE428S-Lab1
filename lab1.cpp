@@ -16,11 +16,15 @@ using namespace std;
 
 
 int main() {
-    PinochleDeck pDeck;
-    HoldEmDeck heDeck;
+    PinochleDeck pDeck = PinochleDeck();
+    HoldEmDeck heDeck = HoldEmDeck();
 
-    pDeck.print(cout);
-    heDeck.print(cout);
+    heDeck.shuffle();
+    pDeck.shuffle();
+
+    pDeck.print(cout, 6);
+    cout << endl;
+    heDeck.print(cout, 13);
 
     return SUCCESS;
 }

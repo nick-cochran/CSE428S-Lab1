@@ -7,10 +7,10 @@ EXECUTABLE	= lab1
 CMPL_SRCS	= Suit.cpp PinochleDeck.cpp HoldEmDeck.cpp lab1.cpp
 
 #               Source files containing only template class method definitions
-TMPL_SRCS	= Card_T.cpp
+TMPL_SRCS	= Card_T.cpp CardSet.cpp
 
 #               Header (.h) files
-HEADER_FILES    = includes.h Suit.h Card_T.h Deck.h PinochleDeck.h HoldEmDeck.h
+HEADER_FILES    = includes.h Suit.h Deck.h Card_T.h CardSet.h PinochleDeck.h HoldEmDeck.h
 
 #               Any special flags that should be set for compilation
 SPECIAL_FLAGS  = -std=c++17 -DTEMPLATE_HEADERS_INCLUDE_SOURCE
@@ -23,7 +23,7 @@ LIBS    =
 #################### DO NOT CHANGE ANYTHING BELOW THIS LINE ###################
 
 #		C++ compiler
-CXX		= g++
+CXX		= g++-11
 
 #               All your source files (needed for executable dependency)
 USER_SRCS        = $(CMPL_SRCS) $(TMPL_SRCS) $(HEADER_FILES)

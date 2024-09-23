@@ -10,12 +10,12 @@
 
 using namespace std;
 
-template<typename S, typename R>
-Card<S, R>::Card(S suit, R rank): suit(suit), rank(rank) {}
+template<typename Suit, typename Rank>
+Card<Suit, Rank>::Card(Suit suit, Rank rank): suit(suit), rank(rank) {}
 
 
-template<typename S, typename R>
-ostream& operator<<(ostream& ost, const Card<S, R>& card) {
+template<typename Suit, typename Rank>
+ostream& operator<<(ostream& ost, const Card<Suit, Rank>& card) {
     ost << card.suit;
     ost << card.rank;
     return ost;

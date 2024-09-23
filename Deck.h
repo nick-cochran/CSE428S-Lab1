@@ -12,10 +12,16 @@
 #define LAB0_DECK_H
 
 #include "includes.h"
+#include "CardSet.h"
 
-class Deck {
+template<typename Suit, typename Rank> class Deck : public CardSet<Suit, Rank> {
  public:
-    virtual void print(ostream& ost) = 0;
+    void shuffle() {
+        std::random_device random_device;
+        auto rng = std::mt19937(random_device());
+
+        std::shuffle(this->cards.begin(), this->cards.end(), rng);
+    }
 };
 
 #endif //LAB0_DECK_H

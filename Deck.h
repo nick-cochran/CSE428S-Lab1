@@ -16,12 +16,14 @@
 
 template<typename Suit, typename Rank> class Deck : public CardSet<Suit, Rank> {
  public:
-    void shuffle() {
-        std::random_device random_device;
-        auto rng = std::mt19937(random_device());
-
-        std::shuffle(this->cards.begin(), this->cards.end(), rng);
-    }
+    void shuffle();
+    void collect(CardSet<Suit, Rank> card_set);
 };
+
+#ifdef TEMPLATE_HEADERS_INCLUDE_SOURCE
+
+#include "Deck.cpp"
+
+#endif // TEMPLATE_HEADERS_INCLUDE_SOURCE
 
 #endif //LAB0_DECK_H

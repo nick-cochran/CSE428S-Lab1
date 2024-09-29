@@ -13,6 +13,8 @@ template <typename Suit, typename Rank> class CardSet {
     vector< Card<Suit, Rank> > cards;
  public:
     void print(ostream& ost, size_t size);
+    CardSet<Suit, Rank>& operator>>(CardSet<Suit, Rank>& card_set);
+    bool is_empty();
 };
 
 #ifdef TEMPLATE_HEADERS_INCLUDE_SOURCE

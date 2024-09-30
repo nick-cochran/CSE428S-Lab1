@@ -8,23 +8,63 @@
  *
  */
 
-#include "Card_T.h"
-#include "PinochleDeck.h"
-#include "HoldEmDeck.h"
+#include "lab1.h"
+#include <csignal>
 
 using namespace std;
 
 
-int main() {
-    PinochleDeck pDeck = PinochleDeck();
-    HoldEmDeck heDeck = HoldEmDeck();
+// main function to run the code
+int main(int argc, const char **argv) {
+    string game_name = argv[GAME_NAME];
+//    raise(SIGINT);
 
-    heDeck.shuffle();
-    pDeck.shuffle();
+    if (argc < 2) {
+        cout << "Error: not enough arguments" << endl;
+        return usage();
+    }
+    if(game_name != "Pinochle" && game_name != "HoldEm") {
+        cout << "Error: invalid game name" << endl;
+        return usage();
+    }
+    if(game_name == "Pinochle" && argc != (INPUTS_PRE_PLAYERS + PINOCHLE_REQUIRED_PLAYERS)) {
+        cout << "Error: There must be four players to play Pinochle." << endl;
+        return usage();
+    }
+    if(game_name == "HoldEm" && (argc < (INPUTS_PRE_PLAYERS + HOLDEM_MIN_PLAYERS)
+            || argc > (INPUTS_PRE_PLAYERS + HOLDEM_MAX_PLAYERS))) {
+        cout << "Error: There must be between 2 and 9 players to play HoldEm." << endl;
+        return usage();
+     }
 
-    pDeck.print(cout, 6);
-    cout << endl;
-    heDeck.print(cout, 13);
+    shared_ptr<Game> game = create(argc, argv);
+    if(game) {
+        return game->play();
+    } else {
+        cout << "Error: game not created" << endl;
+        return NULL_GAME_POINTER;
+    }
 
-    return SUCCESS;
+}
+
+// usage function to return with bad arguments
+int usage() {
+    cout << "Usage: ./lab1.exe <game_name> {player1}, {player2}, ..." << endl;
+    return INVALID_PROGRAM_ARGUMENTS;
+}
+
+// create function to create a game based on the given arguments
+shared_ptr<Game> create(int argc, const char **argv) {
+    shared_ptr<Game> game;
+
+    string game_name = argv[GAME_NAME];
+    if (game_name == "Pinochle") {
+        game = make_shared<PinochleGame>(argc, argv);
+    } else if (game_name == "HoldEm") {
+        game = make_shared<HoldEmGame>(argc, argv);
+    } else {
+
+    }
+
+    return game;
 }

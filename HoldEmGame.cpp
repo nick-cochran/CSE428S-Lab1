@@ -13,11 +13,8 @@ int HoldEmGame::play() {
         deal(); // deal hands
         printHands(cout);
         deal(); // deal flop
-        printBoard(cout);
         deal(); // deal turn
-        printBoard(cout);
         deal(); // deal river
-        printBoard(cout);
 
         collectCards();
         deck.collect(common_cards);
@@ -54,16 +51,19 @@ void HoldEmGame::deal() {
         case HoldEmState::flop:
             // deal three cards to the board
             this->deck >> common_cards >> common_cards >> common_cards;
+            printBoard(cout);
             state = HoldEmState::turn;
             break;
         case HoldEmState::turn:
             // deal one card to the board
             this->deck >> common_cards;
+            printBoard(cout);
             state = HoldEmState::river;
             break;
         case HoldEmState::river:
             // deal one card to the board
             this->deck >> common_cards;
+            printBoard(cout);
             state = HoldEmState::undefined;
             break;
         default: // undefined case-- do nothing
@@ -82,16 +82,17 @@ void HoldEmGame::printHands(ostream &ost) {
 void HoldEmGame::printBoard(ostream &ost) {
     switch (state) {
         case HoldEmState::flop:
-            ost << "BOARD(flop): " << endl;
+            ost << "BOARD(flop): ";
             common_cards.print(ost, 3);
             break;
         case HoldEmState::turn:
-            ost << "BOARD(turn): " << endl;
+            ost << "BOARD(turn): ";
             common_cards.print(ost, 4);
             break;
         case HoldEmState::river:
-            ost << "BOARD(river): " << endl;
+            ost << "BOARD(river): ";
             common_cards.print(ost, 5);
+            ost << endl;
             break;
         default: // do nothing for all other cases
             break;

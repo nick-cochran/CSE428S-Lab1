@@ -33,7 +33,7 @@ void PinochleGame::deal() {
 
     // deal a packet to each player
     for(auto& hand : hands) {
-        this->deck >> hand >> hand >> hand; // TODO come back to this to be sure it's working right
+        this->deck >> hand >> hand >> hand;
     }
 }
 
@@ -46,6 +46,7 @@ void PinochleGame::printHands(ostream &ost) {
 
 void PinochleGame::collectCards() {
     for(auto& hand : hands) {
+        cout << "collecting Pinochle cards" << endl;
         deck.collect(hand);
     }
 }

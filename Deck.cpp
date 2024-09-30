@@ -16,7 +16,7 @@ void Deck<Suit, Rank>::shuffle() {
 
 // part 10
 template<typename Suit, typename Rank>
-void Deck<Suit, Rank>::collect(CardSet<Suit, Rank> card_set) {
+void Deck<Suit, Rank>::collect(CardSet<Suit, Rank>& card_set) {
 
     try {
         if(card_set.is_empty()) {
@@ -24,10 +24,11 @@ void Deck<Suit, Rank>::collect(CardSet<Suit, Rank> card_set) {
         }
 
         while(!card_set.is_empty()) {
+//            cout << "collecting cards" << endl;
             card_set >> *this;
         }
 
-    } catch(string& e) {
-        cout << "Error: " << e << endl;
+    } catch(string& err_str) {
+        cout << "Error: " << err_str << endl;
     }
 }

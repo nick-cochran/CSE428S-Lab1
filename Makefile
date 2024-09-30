@@ -10,7 +10,7 @@ CMPL_SRCS	= Suit.cpp PinochleDeck.cpp HoldEmDeck.cpp Game.cpp PinochleGame.cpp H
 TMPL_SRCS	= Card_T.cpp CardSet.cpp Deck.cpp
 
 #               Header (.h) files
-HEADER_FILES    = includes.h Suit.h Card_T.h CardSet.h Deck.h PinochleDeck.h HoldEmDeck.h Game.h PinochleGame.h HoldEmGame.h
+HEADER_FILES    = includes.h Suit.h Card_T.h CardSet.h Deck.h PinochleDeck.h HoldEmDeck.h Game.h PinochleGame.h HoldEmGame.h lab1.h
 
 #               Any special flags that should be set for compilation
 SPECIAL_FLAGS  = -std=c++17 -DTEMPLATE_HEADERS_INCLUDE_SOURCE
